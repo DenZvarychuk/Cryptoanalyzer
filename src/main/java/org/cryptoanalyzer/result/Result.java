@@ -1,9 +1,11 @@
 package org.cryptoanalyzer.result;
 
+import org.cryptoanalyzer.exception.ApplicationExceptions;
+
 public class Result {
 
+    private ApplicationExceptions applicationExceptions;
     private String initialLine;
-
     private String encodedLine;
     private int key;
 
@@ -14,8 +16,6 @@ public class Result {
     }
 
     public Result(String encodedLine){
-        this.initialLine = getInitialLine();
-        this.key = getKey();
         this.encodedLine = encodedLine;
     }
 
@@ -31,8 +31,16 @@ public class Result {
         return key;
     }
 
+    public ApplicationExceptions getApplicationExceptions() {
+        return applicationExceptions;
+    }
+
     public void setEncodedLine(String encodedLine) {
         this.encodedLine = encodedLine;
+    }
+
+    public void setApplicationExceptions(ApplicationExceptions applicationExceptions) {
+        this.applicationExceptions = applicationExceptions;
     }
 
 }

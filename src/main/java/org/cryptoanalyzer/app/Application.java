@@ -8,18 +8,17 @@ import org.cryptoanalyzer.result.Result;
 import java.io.IOException;
 
 public class Application {
+
+    Result result = new Result("", 0);
+
     public void run() throws IOException {
 
 
-
         Input input = new Input();
-        input.readInput();
-
-        Result result = new Result(input.getLine(), input.getKey());
+        result = input.readInput(result);
 
         BasicCesarEncode encoder = new BasicCesarEncode();
         result.setEncodedLine(encoder.encode(result.getInitialLine(), result.getKey()));
-
 
         Output out = new Output();
         out.showResult(result);
