@@ -3,6 +3,7 @@ package org.cryptoanalyzer.input;
 import org.cryptoanalyzer.exception.ApplicationExceptions;
 import org.cryptoanalyzer.repo.ErrorMessages;
 import org.cryptoanalyzer.result.Result;
+import org.cryptoanalyzer.services.FunctionSelector;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +13,8 @@ import java.io.InputStreamReader;
 public class Input {
 
     private String line;
+    private String function;
+    private String algorithm;
     private int key;
     private boolean validKey = false;
 
@@ -42,4 +45,14 @@ public class Input {
 
         return new Result(line, key);
     }
+
+    public FunctionSelector readFunction() throws IOException {
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("Input function from:");
+
+
+        return null;
+    }
+
 }
