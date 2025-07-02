@@ -14,7 +14,6 @@ public class Application {
 
     public void run() throws IOException {
 
-
         Input input = new Input();
         result = input.readInput(result);
 
