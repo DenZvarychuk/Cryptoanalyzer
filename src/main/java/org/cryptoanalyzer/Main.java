@@ -10,9 +10,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         FunctionSelector selector = new FunctionSelector();
-        selector.inputFunction();
+        selector.readFunction();
+        selector.readAlgorithm();
 
-        new Application().run();
+        new Application().run(selector.getFunction(), selector.getAlgorithm());
 
     }
 }
