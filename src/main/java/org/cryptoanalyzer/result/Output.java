@@ -6,14 +6,14 @@ import org.cryptoanalyzer.repo.FunctionType;
 
 public class Output {
 
-    public void showInputLineInfo(){System.out.println("Input your line:");}
-    public void showInputKeyInfo(){System.out.println("Input your key");}
+    public void showInputLineToCodeInfo(){System.out.println("Input your line:");}
+    public void showInputCodeKeyInfo(){System.out.println("Input your key");}
 
     public void showResult(Result result) {
-        System.out.println("Converted line is:\n" + result.getEncodedLine());
+        System.out.println("Converted line is:\n" + result.getResultLine());
     }
 
-    public void showInputFunctionsCodeList() {
+    public void showAvailableFunctions() {
         StringBuilder optionList  = new StringBuilder();
         for (FunctionType function : FunctionType.values()) {
             if (function.getFunctionCode() != 101) {
@@ -25,8 +25,7 @@ public class Output {
         }
         System.out.printf("Please input function code:\n%s", optionList );
     }
-
-    public void showInputAlgorithmCodeList(int function) {
+    public void showAvailableAlgorithms(int function) {
         StringBuilder optionList  = new StringBuilder();
         for (AlgorithmType algorithm : AlgorithmType.values()) {
             int algorithmFunctionCode = algorithm.getAlgorithmCode() / 10;

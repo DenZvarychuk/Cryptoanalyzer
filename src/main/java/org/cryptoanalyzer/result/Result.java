@@ -7,16 +7,12 @@ public class Result {
     private ApplicationExceptions applicationExceptions;
 
     private String initialLine;
-    private String encodedLine;
-    private int key;
+    private String resultLine;
+    private int codeKey;
 
-    public Result(String encodedLine){
-        this.encodedLine = encodedLine;
-    }
-
-    public Result(String initialLine, int key) {
+    public Result(String initialLine, int codeKey) {
         this.initialLine = initialLine;
-        this.key = key;
+        this.codeKey = codeKey;
     }
 
     //TODO get this works somehow
@@ -31,26 +27,22 @@ public class Result {
     public String getInitialLine() {
         return initialLine;
     }
-    public String getEncodedLine() {
-        return encodedLine;
+    public String getResultLine() {
+        return resultLine;
     }
-    public int getKey() {
-        return key;
+    public int getCodeKey() {
+        return codeKey;
     }
 
-    public void setEncodedLine(String encodedLine) {
-        this.encodedLine = encodedLine;
+    public void setResultLine(String resultLine) {
+        this.resultLine = resultLine;
     }
     public void setInitialLine(String initialLine) {
         this.initialLine = initialLine;
     }
-    public void setKey(int key) {
-        this.key = key;
+    public void setCodeKey(int codeKey) {
+        this.codeKey = codeKey;
     }
-
-
-
-
 
 
 }

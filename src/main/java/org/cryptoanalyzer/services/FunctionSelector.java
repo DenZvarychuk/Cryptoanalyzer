@@ -14,13 +14,13 @@ public class FunctionSelector {
     Output output = new Output();
 
     public void readFunction() throws IOException {
-        output.showInputFunctionsCodeList();
-        function = input.inputFunction();
+        output.showAvailableFunctions();
+        function = input.inputFunctionCode();
     }
 
     public void readAlgorithm() throws IOException {
-        output.showInputAlgorithmCodeList(function);
-        algorithm = input.inputAlgorithm();
+        output.showAvailableAlgorithms(function);
+        algorithm = input.inputAlgorithmCode();
     }
 
     public int getFunction() {
