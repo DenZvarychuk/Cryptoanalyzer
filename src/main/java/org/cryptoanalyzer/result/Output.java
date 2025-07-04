@@ -10,7 +10,7 @@ public class Output {
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}
 
     public void showResult(Result result) {
-        System.out.println("Converted line is:\n" + result.getResultLine());
+        System.out.printf("Converted line is: %s \nKey: %d", result.getResultLine(), result.getCodeKey());
     }
 
     public void showAvailableFunctions() {
@@ -43,5 +43,9 @@ public class Output {
 
     public void underConstruction(){
         System.out.println(ErrorMessages.UNDER_CONSTRUCTION);
+    }
+
+    public void showErrorMessage(String error){
+        System.out.println(error);
     }
 }

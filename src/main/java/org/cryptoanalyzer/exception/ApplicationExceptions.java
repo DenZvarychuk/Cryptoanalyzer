@@ -1,6 +1,9 @@
 package org.cryptoanalyzer.exception;
 
 public class ApplicationExceptions extends RuntimeException {
+
+    String message;
+
     public ApplicationExceptions(String message) {
         super(message);
     }
@@ -19,4 +22,5 @@ public class ApplicationExceptions extends RuntimeException {
 
     public ApplicationExceptions() {
     }
+
 }
