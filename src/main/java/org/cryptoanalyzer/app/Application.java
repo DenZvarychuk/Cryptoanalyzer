@@ -2,8 +2,8 @@ package org.cryptoanalyzer.app;
 
 import org.cryptoanalyzer.input.Input;
 import org.cryptoanalyzer.result.Output;
-import org.cryptoanalyzer.services.BasicCaesarDecoder;
-import org.cryptoanalyzer.services.BasicCaesarEncoder;
+import org.cryptoanalyzer.services.CaesarDecoder;
+import org.cryptoanalyzer.services.CaesarEncoder;
 import org.cryptoanalyzer.result.Result;
 import org.cryptoanalyzer.services.CryptoOperation;
 
@@ -21,21 +21,21 @@ public class Application {
             case 1 -> {
                 switch (algorithm) {
                     // All encode algorithms
-                    case 10, 11, 12, 99 -> {
+                    case 11, 12, 99 -> {
                         output.underConstruction();
                     }
                 }
             }
             case 2 -> {
                 switch (algorithm) {
-                    case 20, 21, 22, 99 -> {
+                    case 21, 22, 99 -> {
                         output.underConstruction();
                     }
                 }
             }
             case 3 -> {
                 switch (algorithm) {
-                    case 20, 21, 22 -> {
+                    case 21, 22 -> {
                         output.underConstruction();
                     }
                 }
@@ -43,8 +43,8 @@ public class Application {
             case 101 -> {
                 switch (algorithm) {
                     // All encode algorithms
-                    case 10 -> {
-                        CryptoOperation operation = new BasicCaesarEncoder();
+                    case 11 -> {
+                        CryptoOperation operation = new CaesarEncoder();
 
                         output.showInputLineToCodeInfo();
                         result.setInitialLine(input.inputLineToCode());
@@ -56,12 +56,10 @@ public class Application {
                         output.showResult(result);
 
                     }
-                    case 11, 12 -> {
-                        output.underConstruction();
-                    }
+                    case 12 -> {output.underConstruction();}
                     // All decode algorithms
-                    case 20 -> {
-                        CryptoOperation operation = new BasicCaesarDecoder();
+                    case 21 -> {
+                        CryptoOperation operation = new CaesarDecoder();
 
                         output.showInputLineToCodeInfo();
                         result.setInitialLine(input.inputLineToCode());
@@ -72,7 +70,7 @@ public class Application {
                         result.setResultLine(operation.process(result.getInitialLine(), result.getCodeKey()));
                         output.showResult(result);
                     }
-                    case 21, 22 -> {
+                    case 22 -> {
                         output.underConstruction();
                     }
                     // AutoMode
