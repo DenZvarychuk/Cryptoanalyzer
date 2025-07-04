@@ -18,7 +18,7 @@ public class Input {
     BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
     Output output = new Output();
 
-    public String inputLineToCode() throws IOException {
+    public String inputLineToCode() throws ApplicationExceptions, IOException {
         String enteredLine;
 
         while (true) {
@@ -42,7 +42,7 @@ public class Input {
 
     }
 
-    public int inputCodeKey() throws IOException {
+    public int inputCodeKey() throws ApplicationExceptions, IOException {
         int key;
 
         while (true) {
@@ -92,7 +92,7 @@ public class Input {
 
     }
 
-    public int inputAlgorithmCode() throws IOException {
+    public int inputAlgorithmCode() throws ApplicationExceptions, IOException {
         int algorithmCode = 0;
 
         while (true) {
