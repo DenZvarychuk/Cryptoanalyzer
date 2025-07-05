@@ -17,22 +17,15 @@ public class CryptoOperationSelector {
         switch (function) {
             case 1 -> {
                 switch (algorithm) {
-                    // All encode algorithms
-                    case 11, 12 -> {
-                        output.underConstruction();
-                    }
+                    case 11, 12 -> output.underConstruction();
                 }
             }
             case 2, 3 -> {
                 switch (algorithm) {
-                    case 21, 22 -> {
-                        output.underConstruction();
-                    }
+                    case 21, 22 -> output.underConstruction();
                 }
             }
-            case 4 -> {
-                output.underConstruction();
-            }
+            case 4 -> output.underConstruction();
             case 101 -> {
                 switch (algorithm) {
                     // All encode algorithms
@@ -43,9 +36,7 @@ public class CryptoOperationSelector {
                     case 22 -> handleManualCipher(new VigenereDecoder(), algorithm % 10);
                 }
             }
-
         }
-
     }
 
     private void handleManualCipher(CryptoOperation operation, int algorithmTypeCode) throws IOException {
