@@ -9,6 +9,7 @@ public class Result {
     private String initialLine;
     private String resultLine;
     private int codeKey;
+    private String codeWord;
 
     public Result(String initialLine, int codeKey) {
         this.initialLine = initialLine;
@@ -33,6 +34,7 @@ public class Result {
     public int getCodeKey() {
         return codeKey;
     }
+    public String getCodeWord() {return codeWord;}
 
     public void setResultLine(String resultLine) {
         this.resultLine = resultLine;
@@ -43,6 +45,7 @@ public class Result {
     public void setCodeKey(int codeKey) {
         this.codeKey = codeKey;
     }
+    public void setCodeWord(String codeWord) {this.codeWord = codeWord;}
 
 
 }

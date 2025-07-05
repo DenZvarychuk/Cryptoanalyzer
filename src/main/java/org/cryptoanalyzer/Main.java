@@ -9,11 +9,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        FunctionSelector selector = new FunctionSelector();
-        selector.readFunction();
-        selector.readAlgorithm();
-
-        new Application().run(selector.getFunction(), selector.getAlgorithm());
+        new Application().run();
 
     }
 }

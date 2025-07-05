@@ -13,16 +13,6 @@ public class FunctionSelector {
     Input input = new Input();
     Output output = new Output();
 
-    public void readFunction() throws IOException {
-        output.showAvailableFunctions();
-        function = input.inputFunctionCode();
-    }
-
-    public void readAlgorithm() throws IOException {
-        output.showAvailableAlgorithms(function);
-        algorithm = input.inputAlgorithmCode();
-    }
-
     public int getFunction() {
         return function;
     }
@@ -30,4 +20,13 @@ public class FunctionSelector {
         return algorithm;
     }
 
+    public void readSelection() throws IOException {
+        output.showAvailableFunctions();
+        function = input.inputFunctionCode();
+
+        if (function != 4) {
+            output.showAvailableAlgorithms(function);
+            algorithm = input.inputAlgorithmCode();
+        } else algorithm = 0;
+    }
 }

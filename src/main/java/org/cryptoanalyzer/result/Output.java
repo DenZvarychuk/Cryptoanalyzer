@@ -9,8 +9,13 @@ public class Output {
     public void showInputLineToCodeInfo(){System.out.println("Input your line:");}
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}
 
-    public void showResult(Result result) {
+    public void showInputCodeWordInfo() {System.out.println("Input your code word");}
+
+    public void showResultCaesar(Result result) {
         System.out.printf("Converted line is: %s \nKey: %d", result.getResultLine(), result.getCodeKey());
+    }
+    public void showResultVigenere(Result result) {
+        System.out.printf("Converted line is: %s \nCode Word: %s", result.getResultLine(), result.getCodeWord());
     }
 
     public void showAvailableFunctions() {

@@ -2,7 +2,6 @@ package org.cryptoanalyzer.input;
 
 import org.cryptoanalyzer.exception.ApplicationExceptions;
 import org.cryptoanalyzer.repo.AlgorithmType;
-import org.cryptoanalyzer.repo.ErrorMessages;
 import org.cryptoanalyzer.repo.FunctionType;
 import org.cryptoanalyzer.result.Output;
 
@@ -35,7 +34,6 @@ public class Input {
             }
         }
 
-
         return enteredLine;
 
         //TODO Logs
@@ -58,6 +56,29 @@ public class Input {
 
         //TODO Logs
 
+    }
+
+    public String inputCodeWord() throws ApplicationExceptions, IOException {
+        String codeWord;
+
+        while (true) {
+            try {
+                boolean isValid = false;
+
+                codeWord = userInput.readLine();
+
+                if (codeWord.isEmpty() || codeWord.equals("")) {
+                    throw new ApplicationExceptions(EMPTY_LINE);
+                } else if (!codeWord.matches("[a-zA-Z]+")){
+                    throw new ApplicationExceptions(INCORRECT_SYMBOL);
+                } else break;
+
+            } catch (ApplicationExceptions e) {
+                output.showErrorMessage(e.getMessage());
+            }
+        }
+
+        return codeWord;
     }
 
     public int inputFunctionCode() throws ApplicationExceptions, IOException {
