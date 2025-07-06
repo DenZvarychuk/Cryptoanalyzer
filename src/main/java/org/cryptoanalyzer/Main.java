@@ -2,7 +2,6 @@ package org.cryptoanalyzer;
 
 
 import org.cryptoanalyzer.app.Application;
-import org.cryptoanalyzer.services.FunctionSelector;
 
 import java.io.IOException;
 

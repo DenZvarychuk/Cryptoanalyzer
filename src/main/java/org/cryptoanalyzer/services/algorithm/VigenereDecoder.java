@@ -1,9 +1,9 @@
-package org.cryptoanalyzer.services;
+package org.cryptoanalyzer.services.algorithm;
 
 import static org.cryptoanalyzer.repo.Alphabet.ENG_ALPHABET;
 import static org.cryptoanalyzer.repo.Alphabet.ENG_ALPHABET_LEN;
 
-public class VigenereDecoder implements CryptoOperation{
+public class VigenereDecoder implements CryptoOperation {
 
     @Override
     public String process(String lineToCode, String codeWord) {

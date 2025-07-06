@@ -1,10 +1,11 @@
-package org.cryptoanalyzer.result;
+package org.cryptoanalyzer.output;
 
 import org.cryptoanalyzer.repo.AlgorithmType;
 import org.cryptoanalyzer.repo.ErrorMessages;
 import org.cryptoanalyzer.repo.FunctionType;
+import org.cryptoanalyzer.result.Result;
 
-public class Output {
+public class ConsoleOutput {
 
     public void showInputLineToCodeInfo(){System.out.println("Input your line:");}
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}

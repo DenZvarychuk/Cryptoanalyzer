@@ -3,7 +3,7 @@ package org.cryptoanalyzer.input;
 import org.cryptoanalyzer.exception.ApplicationExceptions;
 import org.cryptoanalyzer.repo.AlgorithmType;
 import org.cryptoanalyzer.repo.FunctionType;
-import org.cryptoanalyzer.result.Output;
+import org.cryptoanalyzer.output.ConsoleOutput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,10 +12,10 @@ import java.io.InputStreamReader;
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
 
-public class Input {
+public class ConsoleInput {
 
     BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
-    Output output = new Output();
+    ConsoleOutput consoleOutput = new ConsoleOutput();
 
     public String inputLineToCode() throws ApplicationExceptions, IOException {
         String enteredLine;
@@ -30,7 +30,7 @@ public class Input {
                 } else break;
 
             } catch (ApplicationExceptions e) {
-                output.showErrorMessage(e.getMessage());
+                consoleOutput.showErrorMessage(e.getMessage());
             }
         }
 
@@ -48,7 +48,7 @@ public class Input {
                 key = Integer.parseInt(userInput.readLine());
                 break;
             } catch (NumberFormatException e) {
-                output.showErrorMessage(INVALID_KEY);
+                consoleOutput.showErrorMessage(INVALID_KEY);
             }
         }
 
@@ -74,7 +74,7 @@ public class Input {
                 } else break;
 
             } catch (ApplicationExceptions e) {
-                output.showErrorMessage(e.getMessage());
+                consoleOutput.showErrorMessage(e.getMessage());
             }
         }
 
@@ -100,10 +100,10 @@ public class Input {
 
                 break;
             } catch (NumberFormatException e) {
-                output.showErrorMessage(INVALID_FUNCTION_CODE);
+                consoleOutput.showErrorMessage(INVALID_FUNCTION_CODE);
                 continue;
             } catch (ApplicationExceptions e) {
-                output.showErrorMessage(e.getMessage());
+                consoleOutput.showErrorMessage(e.getMessage());
             }
         }
 
@@ -132,10 +132,10 @@ public class Input {
 
                 break;
             } catch (NumberFormatException e) {
-                output.showErrorMessage(INVALID_ALGORITHM_CODE);
+                consoleOutput.showErrorMessage(INVALID_ALGORITHM_CODE);
                 continue;
             } catch (ApplicationExceptions e) {
-                output.showErrorMessage(e.getMessage());
+                consoleOutput.showErrorMessage(e.getMessage());
             }
         }
 

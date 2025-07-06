@@ -1,4 +1,4 @@
-package org.cryptoanalyzer.services;
+package org.cryptoanalyzer.services.algorithm;
 
 import static org.cryptoanalyzer.repo.Alphabet.*;
 

@@ -16,13 +16,7 @@ public class Result {
         this.codeKey = codeKey;
     }
 
-    //TODO get this works somehow
-    public ApplicationExceptions getApplicationExceptions() {
-        return applicationExceptions;
-    }
-    public void setApplicationExceptions(ApplicationExceptions applicationExceptions) {
-        this.applicationExceptions = applicationExceptions;
-    }
+    public Result(){}
 
 
     public String getInitialLine() {
