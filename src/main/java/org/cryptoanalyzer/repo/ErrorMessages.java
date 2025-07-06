@@ -9,6 +9,8 @@ public class ErrorMessages {
     public final static String INVALID_ALGORITHM_CODE = "ERROR: Invalid Algorithm Code\nPlease enter a valid Function Code";
     public final static String INVALID_PATH = "ERROR: Invalid File Path\nPlease start with something like C:/";
     public final static String FILE_DOES_NOT_EXIST = "ERROR: File does not exist. Please enter a valid path";
+    public final static String INCORRECT_FILE_NAME = "ERROR: Filename format is invalid";
+    public final static String EMPTY_FILE = "ERROR: File is empty";
 
     public final static String UNDER_CONSTRUCTION = "This function is unavailable and still under construction";
 

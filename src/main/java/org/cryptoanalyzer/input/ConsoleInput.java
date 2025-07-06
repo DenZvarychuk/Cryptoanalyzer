@@ -104,7 +104,6 @@ public class ConsoleInput {
                 break;
             } catch (NumberFormatException e) {
                 consoleOutput.showErrorMessage(INVALID_FUNCTION_CODE);
-                continue;
             } catch (ApplicationExceptions e) {
                 consoleOutput.showErrorMessage(e.getMessage());
             }
@@ -136,7 +135,6 @@ public class ConsoleInput {
                 break;
             } catch (NumberFormatException e) {
                 consoleOutput.showErrorMessage(INVALID_ALGORITHM_CODE);
-                continue;
             } catch (ApplicationExceptions e) {
                 consoleOutput.showErrorMessage(e.getMessage());
             }
@@ -148,18 +146,15 @@ public class ConsoleInput {
 
     }
 
-    public String inputPath() throws ApplicationExceptions, IOException {
+    public Path inputPath() throws ApplicationExceptions, IOException {
         String src;
 
         while (true) {
             try {
                 src = userInput.readLine().trim();
 
-                System.out.println("raw path: "+ src);
-
                 // Path normalization step for full path
                 Path path = Paths.get(src).toAbsolutePath();
-                System.out.println("Absolute Path: " + path);
 
                 // Exception handling
                 if (src.isEmpty()) {
@@ -174,7 +169,7 @@ public class ConsoleInput {
                     throw new ApplicationExceptions(FILE_DOES_NOT_EXIST);
                 }
 
-                return path.toString();  // Return the absolute file path
+                return path;  // Return the absolute file path
 
             } catch (ApplicationExceptions e) {
                 consoleOutput.showErrorMessage(e.getMessage());
