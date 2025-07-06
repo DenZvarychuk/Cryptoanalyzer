@@ -15,7 +15,7 @@ public class Application {
 
         CryptoOperationSelector operationSelector = new CryptoOperationSelector();
         CryptoRunner runner = operationSelector.select(functionSelector.getFunction(), functionSelector.getAlgorithm());
-        runner.run(operationSelector.getOperation(), functionSelector.getAlgorithm() % 10);
+        runner.run(operationSelector.getOperation(), functionSelector.getAlgorithm());
 
     }
 }

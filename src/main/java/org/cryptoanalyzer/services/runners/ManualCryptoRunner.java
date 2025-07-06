@@ -18,7 +18,7 @@ public class ManualCryptoRunner implements CryptoRunner {
         consoleOutput.showInputLineToCodeInfo();
         result.setInitialLine(consoleInput.inputLineToCode());
 
-        if (algorithmTypeCode == 1) {
+        if (algorithmTypeCode % 10 == 1) {
             consoleOutput.showInputCodeKeyInfo();
             result.setCodeKey(consoleInput.inputCodeKey());
 
@@ -26,7 +26,7 @@ public class ManualCryptoRunner implements CryptoRunner {
             consoleOutput.showResultCaesar(result);
         }
 
-        if (algorithmTypeCode == 2) {
+        if (algorithmTypeCode % 10 == 2) {
             consoleOutput.showInputCodeWordInfo();
             result.setCodeWord(consoleInput.inputCodeWord());
 

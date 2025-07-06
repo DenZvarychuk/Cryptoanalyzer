@@ -81,8 +81,11 @@ public class FileData {
     public String getFileContent() {
         return fileContent;
     }
-    public Path getOutputFilePath(){
+    public Path getOutputFilePath() {
         return outputFilePath;
+    }
+    public String getOutputFileName() {
+        return outputFileName;
     }
 
     public void setFileContent(String fileContent) {

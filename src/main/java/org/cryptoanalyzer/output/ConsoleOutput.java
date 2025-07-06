@@ -56,4 +56,7 @@ public class ConsoleOutput {
         System.out.println(error);
     }
 
+    public void showNewFileName(String fileParentDirectory, String outputFileName) {
+        System.out.printf("Operation successful\nResult created in: %s \nFile name: %s", fileParentDirectory, outputFileName);
+    }
 }

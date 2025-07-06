@@ -27,12 +27,11 @@ public class FileCryptoRunner implements CryptoRunner{
 
         consoleOutput.showInputFilePassInfo();
         fileData.parseFileName(consoleInput.inputPath());
-        fileData.parseOutputFilePathName(algorithmTypeCode);
-        fileOutput.createOutputFile(fileData.getOutputFilePath());
+        fileData.parseOutputFilePathName(algorithmTypeCode / 10);
         fileData.setFileContent(fileInput.readTextToCode(fileData.getFilePath()));
         result.setInitialLine(fileData.getFileContent());
 
-        if (algorithmTypeCode == 1) {
+        if (algorithmTypeCode % 10 == 1) {
             try {
                 result.setCodeKey(Integer.parseInt(fileData.getFileKey()));
             } catch (NumberFormatException e) {
@@ -40,17 +39,15 @@ public class FileCryptoRunner implements CryptoRunner{
             }
 
             result.setResultLine(operation.process(result.getInitialLine(), result.getCodeKey()));
-            //TODO message about process goes well
             fileOutput.writeResult(result.getResultLine(), fileData.getOutputFilePath());
-            //TODO message with new file name
+            consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
         }
 
-        if (algorithmTypeCode == 2) {
+        if (algorithmTypeCode % 10 == 2) {
             result.setCodeWord(fileData.getFileKey());
             result.setResultLine(operation.process(result.getInitialLine(), result.getCodeWord()));
-            //TODO message about process goes well
-
-            //TODO message with new file name
+            fileOutput.writeResult(result.getResultLine(), fileData.getOutputFilePath());
+            consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
         }
 
     }
