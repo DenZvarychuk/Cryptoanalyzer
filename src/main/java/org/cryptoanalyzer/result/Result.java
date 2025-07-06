@@ -1,20 +1,12 @@
 package org.cryptoanalyzer.result;
 
-import org.cryptoanalyzer.exception.ApplicationExceptions;
-
 public class Result {
-
-    private ApplicationExceptions applicationExceptions;
 
     private String initialLine;
     private String resultLine;
     private int codeKey;
     private String codeWord;
-
-    public Result(String initialLine, int codeKey) {
-        this.initialLine = initialLine;
-        this.codeKey = codeKey;
-    }
+    private String filePath;
 
     public Result(){}
 
@@ -29,6 +21,7 @@ public class Result {
         return codeKey;
     }
     public String getCodeWord() {return codeWord;}
+    public String getFilePath() {return filePath;}
 
     public void setResultLine(String resultLine) {
         this.resultLine = resultLine;
@@ -40,6 +33,8 @@ public class Result {
         this.codeKey = codeKey;
     }
     public void setCodeWord(String codeWord) {this.codeWord = codeWord;}
-
+    public void setPath(String filePath) {
+        this.filePath = filePath;
+    }
 
 }

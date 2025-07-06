@@ -4,6 +4,8 @@ import static org.cryptoanalyzer.repo.Alphabet.*;
 
 public class VigenereEncoder implements CryptoOperation {
 
+    //TODO add UKR_ALPHA support
+
     @Override
     public String process(String lineToCode, String codeWord) {
         StringBuilder encodedLine = new StringBuilder();

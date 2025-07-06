@@ -9,16 +9,10 @@ public class ConsoleOutput {
 
     public void showInputLineToCodeInfo(){System.out.println("Input your line:");}
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}
-
     public void showInputCodeWordInfo() {System.out.println("Input your code word");}
-
-    public void showResultCaesar(Result result) {
-        System.out.printf("Converted line is: %s \nKey: %d", result.getResultLine(), result.getCodeKey());
+    public void showInputFilePassInfo() {
+        System.out.println("Input pass to your file");
     }
-    public void showResultVigenere(Result result) {
-        System.out.printf("Converted line is: %s \nCode Word: %s", result.getResultLine(), result.getCodeWord());
-    }
-
     public void showAvailableFunctions() {
         StringBuilder optionList  = new StringBuilder();
         for (FunctionType function : FunctionType.values()) {
@@ -47,6 +41,13 @@ public class ConsoleOutput {
         System.out.printf("Please input algorithm code:\n%s", optionList );
     }
 
+    public void showResultCaesar(Result result) {
+        System.out.printf("Converted line is: %s \nKey: %d", result.getResultLine(), result.getCodeKey());
+    }
+    public void showResultVigenere(Result result) {
+        System.out.printf("Converted line is: %s \nCode Word: %s", result.getResultLine(), result.getCodeWord());
+    }
+
     public void underConstruction(){
         System.out.println(ErrorMessages.UNDER_CONSTRUCTION);
     }
@@ -54,4 +55,5 @@ public class ConsoleOutput {
     public void showErrorMessage(String error){
         System.out.println(error);
     }
+
 }

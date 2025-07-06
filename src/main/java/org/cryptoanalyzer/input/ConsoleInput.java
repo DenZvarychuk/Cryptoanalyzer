@@ -8,6 +8,9 @@ import org.cryptoanalyzer.output.ConsoleOutput;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
@@ -69,7 +72,7 @@ public class ConsoleInput {
 
                 if (codeWord.isEmpty() || codeWord.equals("")) {
                     throw new ApplicationExceptions(EMPTY_LINE);
-                } else if (!codeWord.matches("[a-zA-Z]+")){
+                } else if (!codeWord.matches("[a-zA-Z]+")) {
                     throw new ApplicationExceptions(INCORRECT_SYMBOL);
                 } else break;
 
@@ -143,5 +146,39 @@ public class ConsoleInput {
 
         //TODO Logs
 
+    }
+
+    public String inputPath() throws ApplicationExceptions, IOException {
+        String src;
+
+        while (true) {
+            try {
+                src = userInput.readLine().trim();
+
+                System.out.println("raw path: "+ src);
+
+                // Path normalization step for full path
+                Path path = Paths.get(src).toAbsolutePath();
+                System.out.println("Absolute Path: " + path);
+
+                // Exception handling
+                if (src.isEmpty()) {
+                    throw new ApplicationExceptions(EMPTY_LINE);
+                }
+                if (!src.matches("^[a-zA-Z]:[\\\\/].*")
+                        && !src.matches("^/.*")
+                        && !src.matches("^~[/]?.*")) {
+                    throw new ApplicationExceptions(INVALID_PATH);
+                }
+                if (!Files.exists(path)) {
+                    throw new ApplicationExceptions(FILE_DOES_NOT_EXIST);
+                }
+
+                return path.toString();  // Return the absolute file path
+
+            } catch (ApplicationExceptions e) {
+                consoleOutput.showErrorMessage(e.getMessage());
+            }
+        }
     }
 }
