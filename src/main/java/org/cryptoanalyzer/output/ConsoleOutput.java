@@ -3,7 +3,7 @@ package org.cryptoanalyzer.output;
 import org.cryptoanalyzer.repo.AlgorithmType;
 import org.cryptoanalyzer.repo.ErrorMessages;
 import org.cryptoanalyzer.repo.FunctionType;
-import org.cryptoanalyzer.result.Result;
+import org.cryptoanalyzer.result.ChipperData;
 
 public class ConsoleOutput {
 
@@ -11,7 +11,7 @@ public class ConsoleOutput {
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}
     public void showInputCodeWordInfo() {System.out.println("Input your code word");}
     public void showInputFilePassInfo() {
-        System.out.println("Your file should have propper file naming!\n Correct name: fileNam [OPERATION] key.fileExtension\nPlease input pass to your file");
+        System.out.println("Your file should have propper file naming!\nCorrect name: fileNam [OPERATION] key.fileExtension\nPlease input pass to your file");
     }
     public void showAvailableFunctions() {
         StringBuilder optionList  = new StringBuilder();
@@ -41,11 +41,11 @@ public class ConsoleOutput {
         System.out.printf("Please input algorithm code:\n%s", optionList );
     }
 
-    public void showResultCaesar(Result result) {
-        System.out.printf("Converted line is: %s \nKey: %d", result.getResultLine(), result.getCodeKey());
+    public void showResultCaesar(ChipperData chipperData) {
+        System.out.printf("Converted line is: %s \nKey: %d", chipperData.getResultLine(), chipperData.getCodeKey());
     }
-    public void showResultVigenere(Result result) {
-        System.out.printf("Converted line is: %s \nCode Word: %s", result.getResultLine(), result.getCodeWord());
+    public void showResultVigenere(ChipperData chipperData) {
+        System.out.printf("Converted line is: %s \nCode Word: %s", chipperData.getResultLine(), chipperData.getCodeWord());
     }
 
     public void underConstruction(){

@@ -1,14 +1,12 @@
 package org.cryptoanalyzer.result;
 
-import java.nio.file.Path;
-
-public class Result {
+public class ChipperData {
 
     private String initialLine;
     private String resultLine;
     private int codeKey;
     private String codeWord;
-    public Result(){}
+    public ChipperData(){}
 
 
     public String getInitialLine() {

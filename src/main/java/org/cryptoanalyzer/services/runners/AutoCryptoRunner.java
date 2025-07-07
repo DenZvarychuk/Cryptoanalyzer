@@ -7,7 +7,7 @@ import org.cryptoanalyzer.output.ConsoleOutput;
 import org.cryptoanalyzer.output.FileOutput;
 import org.cryptoanalyzer.repo.AlgorithmType;
 import org.cryptoanalyzer.result.FileData;
-import org.cryptoanalyzer.result.Result;
+import org.cryptoanalyzer.result.ChipperData;
 import org.cryptoanalyzer.services.algorithm.*;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class AutoCryptoRunner implements CryptoRunner{
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();
     private final ConsoleInput consoleInput = new ConsoleInput();
-    private final Result result = new Result();
+    private final ChipperData chipperData = new ChipperData();
     private final FileData fileData = new FileData();
     private final FileInput fileInput = new FileInput();
     private final FileOutput fileOutput = new FileOutput();
@@ -31,7 +31,7 @@ public class AutoCryptoRunner implements CryptoRunner{
         fileData.parseFileName(consoleInput.inputPath());
 
         fileData.setFileContent(fileInput.readTextToCode(fileData.getFilePath()));
-        result.setInitialLine(fileData.getFileContent());
+        chipperData.setInitialLine(fileData.getFileContent());
 
         try {
             switch (fileData.getFileAlgorithm()){
@@ -68,20 +68,20 @@ public class AutoCryptoRunner implements CryptoRunner{
     }
 
     private void processVigenere(CryptoOperation operation) throws IOException {
-        result.setCodeWord(fileData.getFileKey());
-        result.setResultLine(operation.process(result.getInitialLine(), result.getCodeWord()));
-        fileOutput.writeResult(result.getResultLine(), fileData.getOutputFilePath());
+        chipperData.setCodeWord(fileData.getFileKey());
+        chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeWord()));
+        fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
         consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
     }
 
     private void processCaesar(CryptoOperation operation) throws IOException {
         try {
-            result.setCodeKey(Integer.parseInt(fileData.getFileKey()));
+            chipperData.setCodeKey(Integer.parseInt(fileData.getFileKey()));
         } catch (NumberFormatException e) {
             consoleOutput.showErrorMessage(INVALID_KEY);
         }
-        result.setResultLine(operation.process(result.getInitialLine(), result.getCodeKey()));
-        fileOutput.writeResult(result.getResultLine(), fileData.getOutputFilePath());
+        chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+        fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
         consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
     }
 }
