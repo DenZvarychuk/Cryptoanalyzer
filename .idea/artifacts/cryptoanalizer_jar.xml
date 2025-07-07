@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cryptoanalizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cryptoanalizer_jar</output-path>
+    <root id="archive" name="cryptoanalizer.jar">
+      <element id="module-output" name="cryptoanalizer" />
+    </root>
+  </artifact>
+</component>

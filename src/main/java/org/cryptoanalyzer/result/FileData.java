@@ -21,7 +21,6 @@ public class FileData {
     private String fileKey;
     private String fileAlgorithm;
     private String fileContent;
-    private boolean isEmpty;
 
     private ConsoleOutput consoleOutput = new ConsoleOutput();
 
@@ -44,6 +43,8 @@ public class FileData {
             }
         } catch (ApplicationExceptions e){
             consoleOutput.showErrorMessage(e.getMessage());
+            throw e;
+            //TODO throw exception correctly
         }
 
     }
