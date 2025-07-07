@@ -11,7 +11,7 @@ public class ConsoleOutput {
     public void showInputCodeKeyInfo(){System.out.println("Input your key");}
     public void showInputCodeWordInfo() {System.out.println("Input your code word");}
     public void showInputFilePassInfo() {
-        System.out.println("Input pass to your file");
+        System.out.println("Your file should have propper file naming!\n Correct name: fileNam [OPERATION] key.fileExtension\nPlease input pass to your file");
     }
     public void showAvailableFunctions() {
         StringBuilder optionList  = new StringBuilder();

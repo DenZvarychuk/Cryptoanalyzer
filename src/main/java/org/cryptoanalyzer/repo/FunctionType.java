@@ -1,10 +1,10 @@
 package org.cryptoanalyzer.repo;
 
 public enum FunctionType {
-    ENCODE(1, "Шифрування"),
-    DECODE(2, "Дешифрування"),
-    BRUT_FORCE(3, "Брутфорс"),
-    AUTO_MODE(4, "Автоматичний режим (потрібний правильний неймінг файлу)"),
+    ENCODE(1, "Encode"),
+    DECODE(2, "Decode"),
+    BRUT_FORCE(3, "Brute Force"),
+    AUTO_MODE(4, "AutoMode (Should be correct file naming)"),
     MANUAL_TESTING(101, "");
 
     private final int functionCode;
