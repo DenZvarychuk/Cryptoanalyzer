@@ -29,4 +29,7 @@ public class FunctionSelector {
             algorithm = consoleInput.inputAlgorithmCode();
         } else algorithm = 0;
     }
+    public void algorithmSelection(){
+
+    }
 }

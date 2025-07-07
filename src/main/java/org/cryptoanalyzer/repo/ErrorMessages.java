@@ -11,6 +11,8 @@ public class ErrorMessages {
     public final static String FILE_DOES_NOT_EXIST = "ERROR: File does not exist. Please enter a valid path";
     public final static String INCORRECT_FILE_NAME = "ERROR: Filename format is invalid";
     public final static String EMPTY_FILE = "ERROR: File is empty";
+    public final static String INCORRECT_ALGORITHM_FILENAME = "ERROR: Incorrect chipper algorithm in file name";
+    public final static String INCORRECT_FILE_KEY = "ERROR: File key must contain only alphabet letters OR digits";
 
     public final static String UNDER_CONSTRUCTION = "This function is unavailable and still under construction";
 

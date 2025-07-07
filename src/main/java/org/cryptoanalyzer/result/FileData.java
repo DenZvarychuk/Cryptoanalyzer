@@ -2,6 +2,7 @@ package org.cryptoanalyzer.result;
 
 import org.cryptoanalyzer.exception.ApplicationExceptions;
 import org.cryptoanalyzer.output.ConsoleOutput;
+import org.cryptoanalyzer.repo.AlgorithmType;
 
 import java.nio.file.Path;
 import java.util.regex.Matcher;
@@ -47,15 +48,25 @@ public class FileData {
 
     }
 
-    public void parseOutputFilePathName(int algorithmTypeCode) {
+    public void parseOutputFilePathName(AlgorithmType algorythmType) {
         String label;
-        if (algorithmTypeCode == 1) label = "[ENCRYPTED]";
-        else if (algorithmTypeCode == 2) label = "[DECRYPTED]";
-        else label = "[RESULT]";
-
+        switch (algorythmType) {
+            case CAESAR_CIPHER_ENCODE, VIGENERE_CIPHER_ENCODE -> label = "[ENCRYPTED]";
+            case CAESAR_CIPHER_DECODE, VIGENERE_CIPHER_DECODE -> label = "[DECRYPTED]";
+            default -> label = null;
+        }
         outputFileName = String.format("%s %s%s", fileName, label, fileExtension).trim();
         outputFilePath = Path.of(fileParentDirectory, outputFileName);
-
+    }
+    public void parseOutputFilePathName(String algorithm) {
+        String label;
+        switch (algorithm) {
+            case "ENCRYPT" -> label = "[ENCRYPTED]";
+            case "DECRYPT", "BRUTE_FORCE" -> label = "[DECRYPTED]";
+            default -> label = null;
+        }
+        outputFileName = String.format("%s %s%s", fileName, label, fileExtension).trim();
+        outputFilePath = Path.of(fileParentDirectory, outputFileName);
     }
 
     public String getFileFullName() {

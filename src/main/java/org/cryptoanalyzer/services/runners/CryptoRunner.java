@@ -5,5 +5,5 @@ import org.cryptoanalyzer.services.algorithm.CryptoOperation;
 import java.io.IOException;
 
 public interface CryptoRunner {
-    void run(CryptoOperation operation, int algorithmTypeCode) throws IOException;
+    void run(CryptoOperation operation, int algorithmCode) throws IOException;
 }
