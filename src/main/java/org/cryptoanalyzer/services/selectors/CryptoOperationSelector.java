@@ -1,6 +1,5 @@
 package org.cryptoanalyzer.services.selectors;
 
-import org.cryptoanalyzer.output.ConsoleOutput;
 import org.cryptoanalyzer.services.algorithm.*;
 import org.cryptoanalyzer.services.runners.*;
 
@@ -14,7 +13,7 @@ public class CryptoOperationSelector {
             case 1, 2 -> runner = new FileCryptoRunner();
             case 3 -> runner = new BruteForceCryptoRunner();
             case 4 -> runner = new AutoCryptoRunner();
-            case 101 -> runner = new ManualCryptoRunner();
+            case 5 -> runner = new ManualCryptoRunner();
 
         }
         switch (algorithm) {

@@ -23,16 +23,18 @@ public class CaesarDecoder implements CryptoOperation {
     }
 
     private char decodeEng(char symbol, int codeKey) {
+        int normalizedCodeKey = codeKey % ENG_ALPHABET_LEN == 0 ? 1 : codeKey % ENG_ALPHABET_LEN;
         int symbolInd = ENG_ALPHABET.indexOf(Character.toLowerCase(symbol));
-        int newIndex = (ENG_ALPHABET_LEN + symbolInd - (codeKey % ENG_ALPHABET_LEN)) % ENG_ALPHABET_LEN;
+        int newIndex = (ENG_ALPHABET_LEN + symbolInd - normalizedCodeKey) % ENG_ALPHABET_LEN;
         char wrappedSymbol = Character.isUpperCase(symbol) ? Character.toUpperCase(ENG_ALPHABET.charAt(newIndex)) : ENG_ALPHABET.charAt(newIndex);
 
         return wrappedSymbol;
     }
 
     private char decodeUkr(char symbol, int codeKey) {
+        int normalizedCodeKey = codeKey % UKR_ALPHABET_LEN == 0 ? 1 : codeKey % UKR_ALPHABET_LEN;
         int symbolInd = UKR_ALPHABET.indexOf(Character.toLowerCase(symbol));
-        int newIndex = (UKR_ALPHABET_LEN + symbolInd - (codeKey % UKR_ALPHABET_LEN)) % UKR_ALPHABET_LEN;
+        int newIndex = (UKR_ALPHABET_LEN + symbolInd - normalizedCodeKey) % UKR_ALPHABET_LEN;
         char wrappedSymbol = Character.isUpperCase(symbol) ? Character.toUpperCase(UKR_ALPHABET.charAt(newIndex)) : UKR_ALPHABET.charAt(newIndex);
 
         return wrappedSymbol;
@@ -43,4 +45,5 @@ public class CaesarDecoder implements CryptoOperation {
     public String process(String lineToCode, String codeWord) {
         return "";
     }
+
 }

@@ -1,17 +1,48 @@
 package org.cryptoanalyzer.services.runners;
 
+import org.cryptoanalyzer.input.ConsoleInput;
 import org.cryptoanalyzer.output.ConsoleOutput;
+import org.cryptoanalyzer.repo.AlgorithmType;
+import org.cryptoanalyzer.result.ChipperData;
+import org.cryptoanalyzer.services.algorithm.BruteForceAnalysis;
 import org.cryptoanalyzer.services.algorithm.CryptoOperation;
 
 import java.io.IOException;
 
+import static org.cryptoanalyzer.repo.Alphabet.*;
+
 public class BruteForceCryptoRunner implements CryptoRunner {
 
-    //TODO add possibility to read from file and auto-decide the chipper
+    private final ConsoleOutput consoleOutput = new ConsoleOutput();
+    private final ConsoleInput consoleInput = new ConsoleInput();
+    private final ChipperData chipperData = new ChipperData();
+    private final BruteForceAnalysis bruteForceAnalysis = new BruteForceAnalysis();
 
     @Override
     public void run(CryptoOperation operation, int algorithmCode) throws IOException {
-        ConsoleOutput consoleOutput = new ConsoleOutput();
-        consoleOutput.underConstruction();
+        AlgorithmType algorithmType = AlgorithmType.fromCode(algorithmCode);
+
+        consoleOutput.showInputLineToCodeInfo();
+        chipperData.setInitialLine(consoleInput.inputLineToCode());
+
+        switch (algorithmType) {
+            case CAESAR_CIPHER_DECODE -> {
+
+                for (int key = 1; key < UKR_ALPHABET_LEN; key++) {
+                    chipperData.setCodeKey(key);
+                    chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+                    bruteForceAnalysis.check(chipperData.getResultLine(), key);
+                }
+
+                chipperData.setCodeKey(bruteForceAnalysis.getBestKey());
+                chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+                consoleOutput.showResultCaesarBrute(chipperData);
+
+            }
+            case VIGENERE_CIPHER_DECODE -> {
+                ConsoleOutput consoleOutput = new ConsoleOutput();
+                consoleOutput.underConstruction();
+            }
+        }
     }
 }

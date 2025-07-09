@@ -67,13 +67,6 @@ public class AutoCryptoRunner implements CryptoRunner{
         }
     }
 
-    private void processVigenere(CryptoOperation operation) throws IOException {
-        chipperData.setCodeWord(fileData.getFileKey());
-        chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeWord()));
-        fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
-        consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
-    }
-
     private void processCaesar(CryptoOperation operation) throws IOException {
         try {
             chipperData.setCodeKey(Integer.parseInt(fileData.getFileKey()));
@@ -81,6 +74,13 @@ public class AutoCryptoRunner implements CryptoRunner{
             consoleOutput.showErrorMessage(INVALID_KEY);
         }
         chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+        fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
+        consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
+    }
+
+    private void processVigenere(CryptoOperation operation) throws IOException {
+        chipperData.setCodeWord(fileData.getFileKey());
+        chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeWord()));
         fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
         consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
     }

@@ -5,9 +5,11 @@ import org.cryptoanalyzer.output.ConsoleOutput;
 
 import java.io.IOException;
 
+import static org.cryptoanalyzer.repo.FunctionType.*;
+
 public class FunctionSelector {
 
-    private int function;
+    private int function = -1;
     private int algorithm;
 
     ConsoleInput consoleInput = new ConsoleInput();
@@ -24,12 +26,9 @@ public class FunctionSelector {
         consoleOutput.showAvailableFunctions();
         function = consoleInput.inputFunctionCode();
 
-        if (function != 4) {
+        if (function != AUTO_MODE.getFunctionCode() && function != EXIT.getFunctionCode()) {
             consoleOutput.showAvailableAlgorithms(function);
             algorithm = consoleInput.inputAlgorithmCode();
         } else algorithm = 0;
-    }
-    public void algorithmSelection(){
-
     }
 }

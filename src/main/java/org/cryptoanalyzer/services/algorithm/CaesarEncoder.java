@@ -23,8 +23,9 @@ public class CaesarEncoder implements CryptoOperation {
     }
 
     private char encodeEng(char symbol, int codeKey) {
+        int normalizedCodeKey = codeKey % ENG_ALPHABET_LEN == 0 ? 1 : codeKey % ENG_ALPHABET_LEN;
         int symbolIndex = ENG_ALPHABET.indexOf(Character.toLowerCase(symbol));
-        int newIndex = (ENG_ALPHABET_LEN + symbolIndex + (codeKey % ENG_ALPHABET_LEN)) % ENG_ALPHABET_LEN;
+        int newIndex = (ENG_ALPHABET_LEN + symbolIndex + normalizedCodeKey) % ENG_ALPHABET_LEN;
         char wrappedSymbol = ENG_ALPHABET.charAt(newIndex);
 
         if (Character.isUpperCase(symbol)) {
@@ -33,8 +34,9 @@ public class CaesarEncoder implements CryptoOperation {
     }
 
     private char encodeUkr(char symbol, int codeKey) {
+        int normalizedCodeKey = codeKey % UKR_ALPHABET_LEN == 0 ? 1 : codeKey % UKR_ALPHABET_LEN;
         int symbolIndex = UKR_ALPHABET.indexOf(Character.toLowerCase(symbol));
-        int newIndex = (UKR_ALPHABET_LEN + symbolIndex + (codeKey % UKR_ALPHABET_LEN)) % UKR_ALPHABET_LEN;
+        int newIndex = (UKR_ALPHABET_LEN + symbolIndex + normalizedCodeKey) % UKR_ALPHABET_LEN;
         char wrappedSymbol = UKR_ALPHABET.charAt(newIndex);
 
         if (Character.isUpperCase(symbol)) {
