@@ -1,11 +1,15 @@
 package org.cryptoanalyzer.services.algorithm;
 
-import static org.cryptoanalyzer.repo.Alphabet.ENG_ALPHABET;
-import static org.cryptoanalyzer.repo.Alphabet.ENG_ALPHABET_LEN;
+import static org.cryptoanalyzer.repo.Alphabet.*;
 
+/**
+ * This class implements the Vigenère cipher decryption algorithm.
+ * It decodes a given line of text based on a Vigenère cipher and a code word.
+ * The decryption shifts each letter of the text based on the corresponding letter of the code word.
+ *
+ * @TODO Add support for the Ukrainian alphabet (UKR_ALPHABET).
+ */
 public class VigenereDecoder implements CryptoOperation {
-
-    //TODO add UKR_ALPHA support
 
     @Override
     public String process(String lineToCode, String codeWord) {

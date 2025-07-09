@@ -8,6 +8,13 @@ import org.cryptoanalyzer.services.algorithm.CryptoOperation;
 
 import java.io.IOException;
 
+/**
+ * The ManualCryptoRunner class implements the CryptoRunner interface and handles the manual process of encoding
+ * and decoding text using the Caesar or Vigenère cipher.
+ *
+ * It interacts with the user via the console, prompting them for input, and performs the selected cryptographic
+ * operation (encode or decode) based on the algorithm selected by the user.
+ */
 public class ManualCryptoRunner implements CryptoRunner {
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();

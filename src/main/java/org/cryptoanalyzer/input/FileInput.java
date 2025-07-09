@@ -15,7 +15,14 @@ public class FileInput {
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();
 
-    public String readTextToCode(Path filePath) throws IOException {
+    /**
+     * Reads the content of a file and returns it as a String to be used in encryption/decryption.
+     *
+     * @param filePath The path to the file.
+     * @return The content of the file as a String.
+     * @throws IOException and ApplicationExceptions If there is an error reading the file.
+     */
+    public String readTextToCode(Path filePath) throws IOException, ApplicationExceptions{
         StringBuilder text = new StringBuilder();
 
         try (BufferedReader fileInput = new BufferedReader(new FileReader(filePath.toString()))) {

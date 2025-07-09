@@ -11,6 +11,14 @@ import java.io.IOException;
 
 import static org.cryptoanalyzer.repo.Alphabet.*;
 
+/**
+ * The BruteForceCryptoRunner class implements the CryptoRunner interface and handles the process of brute-forcing
+ * the decryption of a ciphered message using the Caesar cipher. It attempts all possible keys and selects the best one
+ * based on a statistical analysis.
+ *
+ * This class specifically works with Caesar cipher decryption and includes functionality to perform brute force analysis
+ * to find the most probable key.
+ */
 public class BruteForceCryptoRunner implements CryptoRunner {
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();

@@ -2,9 +2,14 @@ package org.cryptoanalyzer.services.algorithm;
 
 import static org.cryptoanalyzer.repo.Alphabet.*;
 
+/**
+ * This class implements the Vigenère cipher encryption algorithm.
+ * It encodes a given line of text based on a Vigenère cipher and a code word.
+ * Each letter in the text is shifted forward by the corresponding letter in the code word.
+ *
+ * @TODO Add support for the Ukrainian alphabet (UKR_ALPHABET).
+ */
 public class VigenereEncoder implements CryptoOperation {
-
-    //TODO add UKR_ALPHA support
 
     @Override
     public String process(String lineToCode, String codeWord) {

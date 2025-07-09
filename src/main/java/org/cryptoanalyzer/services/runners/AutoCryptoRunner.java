@@ -14,6 +14,13 @@ import java.io.IOException;
 
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
+/**
+ * The AutoCryptoRunner class implements the CryptoRunner interface.
+ * It automates the process of encoding or decoding a file based on a given algorithm and key.
+ * It handles files in both encryption and decryption modes, supporting both Caesar and Vigenère ciphers.
+ *
+ * This class is used to process files for the automatic encryption/decryption mode.
+ */
 public class AutoCryptoRunner implements CryptoRunner{
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();

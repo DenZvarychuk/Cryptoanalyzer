@@ -7,13 +7,17 @@ import java.io.IOException;
 
 import static org.cryptoanalyzer.repo.FunctionType.*;
 
+/**
+ * The FunctionSelector class is responsible for interacting with the user to select a function and algorithm
+ * for the cryptographic process. It allows the user to choose between different available functions (e.g., encryption,
+ * decryption, brute force) and algorithms (e.g., Caesar, Vigenère).
+ *
+ * This class retrieves the user's input for the function and algorithm to be used in subsequent operations.
+ */
 public class FunctionSelector {
 
     private int function = -1;
     private int algorithm;
-
-    ConsoleInput consoleInput = new ConsoleInput();
-    ConsoleOutput consoleOutput = new ConsoleOutput();
 
     public int getFunction() {
         return function;
@@ -22,7 +26,7 @@ public class FunctionSelector {
         return algorithm;
     }
 
-    public void readSelection() throws IOException {
+    public void readSelection(ConsoleInput consoleInput, ConsoleOutput consoleOutput) throws IOException {
         consoleOutput.showAvailableFunctions();
         function = consoleInput.inputFunctionCode();
 

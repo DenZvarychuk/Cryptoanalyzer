@@ -13,6 +13,13 @@ import java.io.IOException;
 
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
+/**
+ * The FileCryptoRunner class implements the CryptoRunner interface and handles the encryption and decryption
+ * processes for both Caesar and Vigenère ciphers using file input and output.
+ *
+ * It processes the input file, performs the selected algorithm (Caesar or Vigenère cipher) and writes the
+ * result to the output file.
+ */
 public class FileCryptoRunner implements CryptoRunner{
 
     private final ConsoleOutput consoleOutput = new ConsoleOutput();

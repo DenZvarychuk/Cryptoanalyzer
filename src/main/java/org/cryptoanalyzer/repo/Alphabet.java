@@ -3,6 +3,10 @@ package org.cryptoanalyzer.repo;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The Alphabet class provides information about the English and Ukrainian alphabets, their frequencies,
+ * and methods to combine the frequencies from both alphabets.
+ */
 public class Alphabet {
 
     public final static String ENG_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
@@ -38,6 +42,12 @@ public class Alphabet {
             Map.entry('ф', 0.30), Map.entry('ї', 0.22), Map.entry('ґ', 0.01)
     );
 
+    /**
+     * Combines the frequencies of the English and Ukrainian alphabets into a single map.
+     * This map contains frequencies for both languages.
+     *
+     * @return A map containing combined frequencies for both English and Ukrainian alphabets.
+     */
     public static Map<Character, Double> getCombinedFrequencies() {
         Map<Character, Double> combined = new HashMap<>();
         combined.putAll(ENG_FREQUENCIES);

@@ -25,7 +25,6 @@ public class ConsoleInput {
 
         while (true) {
             try {
-                boolean isValid = false;
                 enteredLine = userInput.readLine();
 
                 if (enteredLine.isEmpty() || enteredLine.equals("")) {
@@ -66,8 +65,6 @@ public class ConsoleInput {
 
         while (true) {
             try {
-                boolean isValid = false;
-
                 codeWord = userInput.readLine();
 
                 if (codeWord.isEmpty() || codeWord.equals("")) {

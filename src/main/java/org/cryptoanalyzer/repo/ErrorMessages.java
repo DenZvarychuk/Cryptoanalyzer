@@ -1,5 +1,8 @@
 package org.cryptoanalyzer.repo;
 
+/**
+ * This class contains predefined error messages that are used throughout the application for consistent error handling.
+ */
 public class ErrorMessages {
 
     public final static String EMPTY_LINE = "ERROR: Invalid input\nLine cannot be empty.\nPlease try again.";
@@ -13,6 +16,8 @@ public class ErrorMessages {
     public final static String EMPTY_FILE = "ERROR: File is empty";
     public final static String INCORRECT_ALGORITHM_FILENAME = "ERROR: Incorrect chipper algorithm in file name";
     public final static String INCORRECT_FILE_KEY = "ERROR: File key must contain only alphabet letters OR digits";
+    public final static String UNKNOWN_FUNCTION = "Error: Unknown function code: ";
+    public final static String UNKNOWN_ALGORITHM = "Error: Unknown algorithm code: ";
 
     public final static String UNDER_CONSTRUCTION = "This function is unavailable and still under construction";
 

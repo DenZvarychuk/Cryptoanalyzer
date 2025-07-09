@@ -10,7 +10,12 @@ import java.util.regex.Pattern;
 
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
+/**
+ * This class encapsulates the data of a file, including its path, name, algorithm, key,
+ * and content. It is used to parse and handle files related to encryption and decryption operations.
+ */
 public class FileData {
+
     private Path filePath;
     private Path outputFilePath;
     private String outputFileName;
@@ -24,6 +29,12 @@ public class FileData {
 
     private ConsoleOutput consoleOutput = new ConsoleOutput();
 
+    /**
+     * Parses the given file path to extract the file's components such as name, algorithm, key, and extension.
+     *
+     * @param path the file path to be parsed
+     * @throws ApplicationExceptions if the file name doesn't match the expected pattern
+     */
     public void parseFileName(Path path) throws ApplicationExceptions {
         this.filePath = path;
         this.fileFullName = path.getFileName().toString();
@@ -41,17 +52,21 @@ public class FileData {
             } else {
                 throw new ApplicationExceptions(INCORRECT_FILE_NAME);
             }
-        } catch (ApplicationExceptions e){
+        } catch (ApplicationExceptions e) {
             consoleOutput.showErrorMessage(e.getMessage());
             throw e;
             //TODO throw exception correctly
         }
-
     }
 
-    public void parseOutputFilePathName(AlgorithmType algorythmType) {
+    /**
+     * Parses the output file name and path based on the algorithm type for the operation.
+     *
+     * @param algorithmType the algorithm type used for encryption/decryption
+     */
+    public void parseOutputFilePathName(AlgorithmType algorithmType) {
         String label;
-        switch (algorythmType) {
+        switch (algorithmType) {
             case CAESAR_CIPHER_ENCODE, VIGENERE_CIPHER_ENCODE -> label = "[ENCRYPTED]";
             case CAESAR_CIPHER_DECODE, VIGENERE_CIPHER_DECODE -> label = "[DECRYPTED]";
             default -> label = null;
@@ -59,6 +74,12 @@ public class FileData {
         outputFileName = String.format("%s %s%s", fileName, label, fileExtension).trim();
         outputFilePath = Path.of(fileParentDirectory, outputFileName);
     }
+
+    /**
+     * Parses the output file name and path based on the algorithm name for the operation.
+     *
+     * @param algorithm the algorithm name (e.g., "ENCRYPT", "DECRYPT")
+     */
     public void parseOutputFilePathName(String algorithm) {
         String label;
         switch (algorithm) {
@@ -73,29 +94,39 @@ public class FileData {
     public String getFileFullName() {
         return fileFullName;
     }
+
     public String getFileName() {
         return fileName;
     }
+
     public String getFileParentDirectory() {
         return fileParentDirectory;
     }
+
     public String getFileExtension() {
         return fileExtension;
     }
+
     public String getFileKey() {
         return fileKey;
     }
+
     public String getFileAlgorithm() {
         return fileAlgorithm;
     }
-    public Path getFilePath(){
-        return filePath;}
+
+    public Path getFilePath() {
+        return filePath;
+    }
+
     public String getFileContent() {
         return fileContent;
     }
+
     public Path getOutputFilePath() {
         return outputFilePath;
     }
+
     public String getOutputFileName() {
         return outputFileName;
     }

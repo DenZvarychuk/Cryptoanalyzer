@@ -2,6 +2,10 @@ package org.cryptoanalyzer.services.algorithm;
 
 import static org.cryptoanalyzer.repo.Alphabet.*;
 
+/**
+ * This class implements the Caesar cipher decryption operation for both English and Ukrainian alphabets.
+ * It decodes a given string based on the Caesar cipher algorithm using a specified key.
+ */
 public class CaesarDecoder implements CryptoOperation {
 
     @Override

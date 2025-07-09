@@ -1,5 +1,9 @@
 package org.cryptoanalyzer.repo;
 
+/**
+ * Enum representing different cryptographic algorithms and their respective encoding/decoding operations.
+ * Each algorithm has a code and a description.
+ */
 public enum AlgorithmType {
     CAESAR_CIPHER_ENCODE(11,  "Encode Caesar chipper"),
     VIGENERE_CIPHER_ENCODE(12, "Encode Vigenere chipper"),
