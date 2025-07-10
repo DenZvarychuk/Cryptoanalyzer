@@ -21,31 +21,23 @@ public class CryptoOperationSelector {
      * @return The selected `CryptoRunner` and 'Algorithm'.
      */
     public CryptoRunner select(FunctionSelector functionSelector) {
-        runner = selectRunner(functionSelector.getFunction());
-        operation = selectOperation(functionSelector.getAlgorithm());
+        switch (functionSelector.getFunction()) {
+            case 1, 2 -> runner = new FileCryptoRunner();
+            case 3 -> runner = new BruteForceCryptoRunner();
+            case 4 -> runner = new AutoCryptoRunner();
+            case 5 -> runner = new ManualCryptoRunner();
+
+        }
+        switch (functionSelector.getAlgorithm()) {
+            case 11 -> operation = new CaesarEncoder();
+            case 12 -> operation = new VigenereEncoder();
+            case 21 -> operation = new CaesarDecoder();
+            case 22 -> operation = new VigenereDecoder();
+        }
 
         return runner;
     }
 
-    private CryptoRunner selectRunner(int function) {
-        return switch (function) {
-            case 1, 2 -> new FileCryptoRunner();
-            case 3 -> new BruteForceCryptoRunner();
-            case 4 -> new AutoCryptoRunner();
-            case 5 -> new ManualCryptoRunner();
-            default -> throw new ApplicationExceptions(UNKNOWN_FUNCTION);
-        };
-    }
-
-    private CryptoOperation selectOperation(int algorithm) {
-        return switch (algorithm) {
-            case 11 -> new CaesarEncoder();
-            case 12 -> new VigenereEncoder();
-            case 21 -> new CaesarDecoder();
-            case 22 -> new VigenereDecoder();
-            default -> throw new ApplicationExceptions(UNKNOWN_ALGORITHM);
-        };
-    }
 
     public CryptoOperation getOperation() {
         return operation;

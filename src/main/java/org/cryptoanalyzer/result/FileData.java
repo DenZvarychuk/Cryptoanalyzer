@@ -59,6 +59,21 @@ public class FileData {
         }
     }
 
+    public void parseBruteFileName(Path path) throws ApplicationExceptions {
+        this.filePath = path;
+        this.fileFullName = path.getFileName().toString();
+        this.fileParentDirectory = path.getParent().toString();
+
+        Pattern pattern = Pattern.compile("^(.*)\\.([^.]+)$");
+        Matcher matcher = pattern.matcher(fileFullName);
+
+        if (matcher.matches()) {
+            this.fileName = matcher.group(1);
+            this.fileExtension = "." + matcher.group(2);
+        }
+    }
+
+
     /**
      * Parses the output file name and path based on the algorithm type for the operation.
      *

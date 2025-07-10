@@ -12,14 +12,14 @@ import org.cryptoanalyzer.result.ChipperData;
  */
 public class ConsoleOutput {
 
-    public void showInputLineToCodeInfo(){System.out.println("Input your line:");}
+    public void showInputLineToCodeInfo(){System.out.print("Input your line: \n-> ");}
 
-    public void showInputCodeKeyInfo(){System.out.println("Input your key");}
+    public void showInputCodeKeyInfo(){System.out.print("Input your key:\n-> ");}
 
-    public void showInputCodeWordInfo() {System.out.println("Input your code word");}
+    public void showInputCodeWordInfo() {System.out.print("Input your code word:\n-> ");}
 
     public void showInputFilePassInfo() {
-        System.out.println("Your file should have propper file naming!\nCorrect name: fileNam [OPERATION] key.fileExtension\nPlease input pass to your file");
+        System.out.print("Your file should have propper file naming!\nCorrect name: fileNam [OPERATION] key.fileExtension\nPlease input pass to your file\n-> ");
     }
 
     public void showAvailableFunctions() {
@@ -30,7 +30,7 @@ public class ConsoleOutput {
                         .append(function.getFunctionName())
                         .append("\n");
         }
-        System.out.println(String.format("Please input function code:\n%s", optionList ));
+        System.out.print(String.format("Please input function code:\n%s-> ", optionList ));
     }
 
     public void showAvailableAlgorithms(int function) {
@@ -46,15 +46,15 @@ public class ConsoleOutput {
                     .append(algorithm.getAlgorithmName())
                     .append("\n");
         }
-        System.out.printf("Please input algorithm code:\n%s", optionList );
+        System.out.print(String.format("Please input algorithm code:\n%s-> ", optionList));
     }
 
     public void showResultCaesar(ChipperData chipperData) {
-        System.out.printf("Converted line is: %s \nKey: %d\n", chipperData.getResultLine(), chipperData.getCodeKey());
+        System.out.print(String.format("Converted line is: %s \nKey: %d\n\n", chipperData.getResultLine(), chipperData.getCodeKey()));
     }
 
     public void showResultVigenere(ChipperData chipperData) {
-        System.out.printf("Converted line is: %s \nCode Word: %s", chipperData.getResultLine(), chipperData.getCodeWord());
+        System.out.print(String.format("Converted line is: %s \nCode Word: %s\n\n", chipperData.getResultLine(), chipperData.getCodeWord()));
     }
 
     public void underConstruction(){
@@ -62,15 +62,15 @@ public class ConsoleOutput {
     }
 
     public void showErrorMessage(String error){
-        System.out.println(error);
+        System.out.print(error + "\n-> ");
     }
 
     public void showNewFileName(String fileParentDirectory, String outputFileName) {
-        System.out.printf("Operation successful\nResult created in: %s \nFile name: %s", fileParentDirectory, outputFileName);
+        System.out.printf("\nOperation successful!!!\nResult created in: %s \nFile name: %s \n\n", fileParentDirectory, outputFileName);
     }
 
     public void showResultCaesarBrute(ChipperData chipperData) {
-        System.out.println(String.format("Possible line: %s \nPossible key: %d \n", chipperData.getResultLine(), chipperData.getCodeKey()));
+        System.out.println(String.format("\nPossible line: %s \nPossible key: %d \n", chipperData.getResultLine(), chipperData.getCodeKey()));
     }
 
     public void showGreetings() {

@@ -9,9 +9,11 @@ import org.cryptoanalyzer.repo.AlgorithmType;
 import org.cryptoanalyzer.result.FileData;
 import org.cryptoanalyzer.result.ChipperData;
 import org.cryptoanalyzer.services.algorithm.*;
+import org.cryptoanalyzer.services.algorithm.BruteForceAnalysis;
 
 import java.io.IOException;
 
+import static org.cryptoanalyzer.repo.Alphabet.UKR_ALPHABET_LEN;
 import static org.cryptoanalyzer.repo.ErrorMessages.*;
 
 /**
@@ -65,13 +67,31 @@ public class AutoCryptoRunner implements CryptoRunner{
                         } else throw new ApplicationExceptions(INCORRECT_FILE_KEY);
                     }
                     case "BRUTE_FORCE" -> {
-                        consoleOutput.underConstruction();
+                        fileData.parseOutputFilePathName("BRUTE_FORCE");
+                        operation = new CaesarDecoder();
+                        processBruteForce(operation);
                     }
                     default -> throw new ApplicationExceptions(INCORRECT_ALGORITHM_FILENAME);
             }
         } catch (ApplicationExceptions e){
             consoleOutput.showErrorMessage(e.getMessage());
         }
+    }
+
+    private void processBruteForce(CryptoOperation operation) throws IOException{
+        final BruteForceAnalysis bruteForceAnalysis = new BruteForceAnalysis();
+
+        for (int key = 1; key < UKR_ALPHABET_LEN; key++) {
+            chipperData.setCodeKey(key);
+            chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+            bruteForceAnalysis.check(chipperData.getResultLine(), key);
+        }
+
+        chipperData.setCodeKey(bruteForceAnalysis.getBestKey());
+        chipperData.setResultLine(operation.process(chipperData.getInitialLine(), chipperData.getCodeKey()));
+        fileOutput.writeResult(chipperData.getResultLine(), fileData.getOutputFilePath());
+        consoleOutput.showNewFileName(fileData.getFileParentDirectory(), fileData.getOutputFileName());
+
     }
 
     private void processCaesar(CryptoOperation operation) throws IOException {
